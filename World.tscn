@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://da5ap2hd05unc"]
+
+[ext_resource type="PackedScene" path="res://actors/Player.tscn" id="1"]
+[ext_resource type="Script" path="res://World.gd" id="2"]
+[ext_resource type="PackedScene" path="res://managers/EnemyManager.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://managers/BulletManager.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://HUD.tscn" id="5"]
+
+[node name="world" type="Node"]
+script = ExtResource("2")
+
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.0313726, 0.188235, 0.0352941, 1)
+
+[node name="HUD" parent="." instance=ExtResource("5")]
+
+[node name="player" parent="." instance=ExtResource("1")]
+position = Vector2(800, 480)
+
+[node name="bullet_manager" parent="." instance=ExtResource("4")]
+
+[node name="enemy_manager" parent="." instance=ExtResource("3")]
+
+[node name="score_timer" type="Timer" parent="."]
